@@ -1,4 +1,5 @@
-ACADEASE: STUDENT MANAGEMENT SYSTEM
+ACADEASE: STUDENT MANAGEMENT SYSTEM  
+
 A simple command-line program written in Python for managing student
 records. It stores students in memory, lets you add new ones, look them
 up by registration number, and find the top scorer.
