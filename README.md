@@ -1,1 +1,1 @@
-# LibraNova-Smart-Library-Management-System
+# AcadEase: makes academics easy to manage
