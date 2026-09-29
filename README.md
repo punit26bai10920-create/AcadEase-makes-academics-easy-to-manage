@@ -1,108 +1,67 @@
 ACADEASE: STUDENT MANAGEMENT SYSTEM
-===================================
-
-A simple command-line program written in Python that makes academic records
-easy to manage. It stores student details in memory and lets you view, add,
-and search students, and find the top scorer.
-
-
+A simple command-line program written in Python for managing student
+records. It stores students in memory, lets you add new ones, look them
+up by registration number, and find the top scorer.
 FEATURES
 --------
-1. Show all students   - Prints the names of all students in the list
-2. Add student         - Adds a new student (name, registration number,
-                         branch, Physics and Chemistry marks)
-3. Search student      - Looks up a student by registration number and shows
-                         name, branch, and marks
-4. Show highest scorer - Finds the student with the highest combined
-                         Physics + Chemistry marks
-5. Exit                - Ends the session
-
-
+1. Show all students: lists the names of every student.
+2. Add student: enter a name, registration number, branch, and marks
+   for four subjects.
+3. Search student: look up a student by registration number and view
+   their branch and marks.
+4. Show highest scorer: finds the student with the highest total marks.
+5. Exit: ends the program.
 REQUIREMENTS
 ------------
-- Python 3.6 or higher
-- No external libraries needed
-
+- Python 3.x (no external libraries needed)
 
 HOW TO RUN
 ----------
-    python AcadEase_makes_academics_easy_to_manage.py
+    python main.py
 
-Then enter the number of the option you want when prompted:
+Type a number (1-5) at the prompt and press Enter. The menu keeps
+running until you choose 5.
 
-    STUDENT MANAGEMENT SYSTEM
-    1. Show all students
-    2. Add student
-    3.Search student
-    4. Show highest scorer
-    5. Exit
-    Enter your choice:
+
+EXAMPLE
+-------
+Enter your choice:3
+Enter the registration number:26BMR10003
+Name: Krit
+Branch: Robotics and AI
+Calculus: 98
+CSE: 87
+EVs: 90
+English: 85
 
 
 DATA STRUCTURE
 --------------
-Each student is stored as a dictionary inside the "students" list:
+Each student is a dictionary in the "students" list:
 
-    {
-        'Name': 'Krit',
-        'Registration number': '26BMR10003',
-        'Branch': 'Robotics and AI',
-        'Physics': 98,
-        'Chemistry': 87
-    }
+    Name                 - Student's name (string)
+    Registration number  - Unique ID (string)
+    Branch               - Student's branch (string)
+    Calculus             - Calculus marks (int)
+    CSE                  - CSE marks (int)
+    EVs                  - EVs marks (int)
+    English              - English marks (int)
 
-Pre-loaded students:
-
-    Name     Registration No.   Branch             Physics   Chemistry
-    -------  -----------------  -----------------  -------   ---------
-    Gagnesh  26BAI19976         AI-ML              50        50
-    Punit    26BAI10920         Computer Science   78        68
-    Krit     26BMR10003         Robotics and AI    98        87
+The program starts with three sample students: Gagnesh, Punit, and Krit.
 
 
-EXAMPLE USAGE
--------------
-Search a student (option 3):
-
-    Enter your choice:3
-    Enter the registration number:26BAI10920
-    Name: Punit
-    Branch: Computer Science
-    Physics: 78
-    Chemistry: 68
+LIMITATIONS
+-----------
+- Data is not saved; added students are lost when the program exits.
+- Non-numeric input for the menu or marks crashes the program.
+- Duplicate registration numbers are allowed.
+- Marks are not range-checked.
 
 
-KNOWN ISSUES
-------------
-This is a beginner project, and a few things still need fixing:
-
-1. Add student crashes (option 2): the code appends to "info_students",
-   which doesn't exist. It should append to "students".
-
-2. Search only covers the first 3 students (option 3): it is hard-coded to
-   indexes 0, 1, and 2. Any unknown registration number falls into the
-   "else" and shows students[3], which raises an error if the list has only
-   3 students. Newly added students can't be found.
-
-3. Highest scorer is wrong (option 4): the print statement sits outside the
-   loop, so it shows the name of the LAST student in the list rather than
-   the one with the top score.
-
-4. Exit doesn't work (option 5): the loop has no "break", so the program
-   keeps asking for input. The "Thank You" message is attached to "while"
-   via "else" and is never reached.
-
-5. No input validation: entering a non-number at the menu or in the marks
-   fields crashes the program.
-
-
-SUGGESTED IMPROVEMENTS
-----------------------
-- Search using a loop over "students" instead of fixed indexes, with a
-  "student not found" message
-- Track the top scorer's name inside the loop for option 4
-- Add "break" for option 5
-- Wrap number inputs in try/except
-- Save data to a file (CSV or JSON) so records persist between runs
-- Add more subjects, and options to update or delete students
-
+POSSIBLE IMPROVEMENTS
+---------------------
+- Save/load data with a JSON or CSV file.
+- Add input validation using try/except.
+- Prevent duplicate registration numbers.
+- Show full details in "Show all students".
+- Add edit and delete options.
